@@ -82,8 +82,8 @@ function qClear()
 	qBack = ""
 end
 function qPush(mon,y)
-	term.setCursorPos(1,y)
-	term.blit(qText,qFore,qBack)
+	mon.setCursorPos(1,y)
+	mon.blit(qText,qFore,qBack)
 	qClear()
 end
 function renderProgram(name,cline,ccol,cdata,mon,linestoRender)
@@ -126,7 +126,7 @@ function renderProgram(name,cline,ccol,cdata,mon,linestoRender)
 			fonttable = genFontTable(dtx);
 			for font_index=1,#dtx do
 				cForegroundColor = fonttable[font_index]
-				qwrite(dtx:sub(font_index,font_index))
+				qWrite(dtx:sub(font_index,font_index))
 			end
 		else
 			local fonttable = genFontTable(toDisplay);
@@ -150,11 +150,11 @@ function renderProgram(name,cline,ccol,cdata,mon,linestoRender)
 				end
 				
 				if(#toDisplay:sub(disp+1,disp+1)== 1) then
-					qwrite(toDisplay:sub(disp+1,disp+1));
+					qWrite(toDisplay:sub(disp+1,disp+1));
 				elseif((renderunderscore == true)and (#toDisplay:sub(disp+1,disp+1) == 0)) then
-					qwrite("_");
+					qWrite("_");
 				elseif (#toDisplay:sub(disp+1,disp+1) == 0) then
-					qwrite(" ")
+					qWrite(" ")
 				else
 				end
 			 end
